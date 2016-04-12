@@ -1,0 +1,6 @@
+{% extends 'common/accountbase.html' %}
+ {% block title %} Email Sent{% endblock %}
+ {% block content %}
+ Hey, {{ u.username }}. You have successfully activated your account.
+ <a href="{% url 'login' %}">Login</a> to continue.
+ {% endblock %}

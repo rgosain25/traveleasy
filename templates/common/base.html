@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title> {% block page_title %} TravelEasy {% endblock %} </title>
+        <link href="{% static 'common/css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'common/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        {% include 'material/includes/material_css.html' %}
+        {% block extrahead %} {% endblock %}
+        <style type="text/css">
+            .dp {
+                width: 60px;
+                height: auto;
+            }
+            html { 
+                  background: url({% static "common/images/newbg.png" %}) no-repeat center center fixed; 
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;
+
+                  font-family: "segoe ui";
+            }
+
+            .bg {
+                background-color: rgba(0,0,0,0.5);
+            }
+        </style>
+    </head>
+    <body class='flow-text white-text'>
+        <section id='navBar'>
+            
+            <div class='navbar-fixed'>
+                <nav class='deep-orange'>
+                    <div class="nav-wrapper">
+                      <a href="{% url 'home' id=user.id %}" class="brand-logo"><h4>TravelEasy</h4></a>
+                      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                      <ul class="right hide-on-med-and-down">
+                        <li><a href="{% url 'home' id=user.id %}">
+                            <img src="{{ user.profile_pic.url }}" alt="{{ user }}" class="dp circle responsive-img"></a></li>                
+                        <li><a href="{% url 'logout' %}">Logout</a></li>                                         
+                      </ul>
+                      <ul class="side-nav" id="mobile-demo">
+                        <li><a href="{% url 'home' id=user.id %}">
+                            <img src="{{ user.profile_pic.url }}" alt="{{ user }}" class="circle responsive-img dp"></a></li>              
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                        
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+            
+        </section>
+        <main class="container">
+            {% block content %} {% endblock %}
+        </main>
+        <script src="{% static 'common/js/jquery-2.2.1.min.js' %}"></script>
+        {% include 'material/includes/material_js.html' %}
+        {% block scripts %} {% endblock %}
+    </body>
+</html>

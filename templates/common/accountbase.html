@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title> {% block page_title %} TravelEasy {% endblock %} </title>
+        <link href="{% static 'common/css/base.css' %}" rel="stylesheet">
+        {% include 'material/includes/material_css.html' %}
+        {% block extrahead %} {% endblock %}
+        <style type="text/css">
+           html { 
+                  background: url({% static "common/images/bg.jpg" %}) no-repeat center center fixed; 
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;
+
+                  font-family: "segoe ui";
+            }
+        </style>
+    </head>
+    <body class='flow-text black-text'>
+        <main class="container">
+            {% block content %} {% endblock %}
+        </main>
+        <script src="{% static 'common/js/jquery-2.2.1.min.js' %}"></script>
+        {% include 'material/includes/material_js.html' %}
+        {% block scripts %} {% endblock %}
+    </body>
+</html>

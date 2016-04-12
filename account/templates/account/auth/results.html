@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+ {% block page_title %} Welcome {% endblock %}
+ {% block content %}
+     <style>
+     .book{
+         background-color: black;
+         font-size: medium;
+         text-align: right;
+         float: right;
+     }
+
+
+     </style>
+
+ <div class='card-panel bg'>
+ 	<h4>Uber Fare    <a align="right" class="book" href="https://www.uber.com/cities/new-delhi/">Book here</a></h4>
+ 	<ul><li>UberGo: {{ poolCostRange }}</li>
+ 		<li>UberGo: {{ uberGoCostRange }}</li>
+ 		<li>UberX: {{ uberXCostRange }}</li>
+ 		<li>UberXl: {{ uberXlCostRange }}</li>
+ 	</ul>
+ </div>
+ <div class='card-panel bg'>
+ 	<h4>Ola Fare: <i class="fa fa-inr"></i>{{ olaCostRange     }}<a class="book"  href="www.olacabs.com">Book here</a></h4>
+ </div>
+ <div class='card-panel bg'>
+ 	<h4>Jugnoo Fare: <i class="fa fa-inr"></i>{{ jugnooCostRange     }}<a class="book" href="https://www.uber.com/cities/new-delhi/">Book here</a></h4>
+ </div>
+ <div class='card-panel bg'>
+ 	<h4>DTC green bus Fare: <i class="fa fa-inr"></i>{{ greenBusCostRange     }}</h4>
+ </div>
+ <div class='card-panel bg'>
+ 	<h4>DTC red bus Fare: <i class="fa fa-inr"></i>{{ redBusCostRange     }}</h4>
+ </div>
+ 
+ {% endblock %}

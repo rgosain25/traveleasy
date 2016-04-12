@@ -1,0 +1,6 @@
+{% extends 'common/base.html' %}
+ {% block page_title %} Welcome {% endblock %}
+ {% block content %}
+ <h1> Welcome, {{ user.username }}</h1>
+ <a class="waves-effect waves-light btn" href="{% url 'get-fare' %}">Get Fare</a>
+ {% endblock %}

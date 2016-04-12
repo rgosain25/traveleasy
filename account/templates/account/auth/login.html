@@ -1,0 +1,50 @@
+{% extends 'common/accountbase.html' %}
+{% block title %} Login {% endblock %}
+{% load material_form %}
+{% block extrahead %}
+<style type="text/css">
+#hf {
+ display: block;   
+ margin: auto;
+ text-align: center;
+}
+
+#mf {
+    margin: 50px auto;
+}
+
+#f {
+    background-color: rgba(0,0,0,0.5);
+}
+</style>
+{% endblock %}
+ {% block content %}
+ <div id='hf'>
+    <h4 class='white-text'>Hi! Welcome to TravelEasy.</h4>
+ </div>
+ <div class="row white-text" id='mf'>
+     <div class="col s12 m8 l6 offset-m2 offset-l3">
+         <div class="card-panel" id='f'>
+             <h4 align="center" font-size=12px>Please Login or Signup</h4>
+             <form action = "{% url 'login' %}" method='POST'>
+                 {% csrf_token %}
+                 {% form form=f %}{% endform %}
+                 <div class="row">
+                     <div class="col s6">
+                         <button type="submit" id ="login-btn" name="login" class="btn waves-effect waves-light left">Log In</button>
+                     </div>
+                     <div class='col s6'>
+                        <a class="waves-effect waves-light btn" href="{% url 'signup' %}">
+                            Signup</a>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="col s12">
+                         <a href="{% url 'forgot-password' %}"> Forgot Password?</a>
+                     </div>
+                 </div>
+             </form>
+         </div>
+     </div>
+ </div>
+ {% endblock %}

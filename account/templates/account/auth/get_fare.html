@@ -1,0 +1,68 @@
+{% extends 'common/base.html' %}
+ {% block page_title %} Welcome {% endblock %}
+ {% block extrahead %}
+ <style type="text/css">
+ #gf {
+ 	display: block;
+ 	margin: auto;
+ }
+
+#hf {
+	margin: 50px 0;
+}
+
+ #mf {
+ 	margin: 50px auto; 	
+ }
+ </style>
+ {% endblock %}
+ {% block content %}
+ {% if error %}
+ {{ error }}
+ {% endif %}
+ <div id='hf'>
+ 	<h4>Hi {{ request.user }}! Welcome to TravelEasy</h4>
+ </div>
+ <div class='card-panel s12 bg' id='mf'>
+ 	<form action='' method='POST'>
+ 		{% csrf_token %}
+	 	<div class='row'>
+		 	<div class='col s12 m6'>
+			 	Source
+			 	<select name='src'>
+			 		<option value='Hari+Nagar+New+Delhi'>Hari Nagar</option>
+			 		<option value='Rajouri+Garden+New+Delhi'>Rajouri Garden</option>
+			 		<option value='Dhaula+Kuan+New+Delhi'>Dhaula Kuan</option>
+			 		<option value='Green+Park+New+Delhi'>Green Park</option>
+			 		<option value='Saket+New+Delhi'>Saket</option>
+			 		<option value='Satya+Niketan+New+Delhi'>Satyaniketan</option>
+			 		<option value='Central+Park+New+Delhi'>CP</option>
+			 		<option value='Karol+Bagh+New+Delhi'>Karol Bagh</option>
+			 		<option value='Dwarka+New+Delhi'>Dwarka</option>
+			 		<option value='Janak+Puri+New+Delhi'>JanakPuri</option>
+			 		<option value='Tilak+Nagar+New+Delhi'>Tilak Nagar</option>
+			 		<option value='Delhi+Cantt+New+Delhi'>Delhi Cantt</option>
+			 	</select>
+		 	</div>
+		 	<div class='col s12 m6'>
+			 	Destination
+			 	<select name='dest'>
+			 		<option value='Hari+Nagar+New+Delhi'>Hari Nagar</option>
+			 		<option value='Rajouri+Garden+New+Delhi'>Rajouri Garden</option>
+			 		<option value='Dhaula+Kuan+New+Delhi'>Dhaula Kuan</option>
+			 		<option value='Green+Park+New+Delhi'>Green Park</option>
+			 		<option value='Saket+New+Delhi'>Saket</option>
+			 		<option value='Satya+niketan+New+Delhi'>Satyaniketan</option>
+			 		<option value='CP+New+Delhi'>CP</option>
+			 		<option value='Karol+Bagh+New+Delhi'>Karol Bagh</option>
+			 		<option value='Dwarka+New+Delhi'>Dwarka</option>
+			 		<option value='Janak+Puri+New+Delhi'>JanakPuri</option>
+			 		<option value='Tilak+Nagar+New+Delhi'>Tilak Nagar</option>
+			 		<option value='Delhi+Cantt+New+Delhi'>Delhi Cantt</option>
+			 	</select>
+		 	</div>
+	 	</div>
+	 	<button type="submit" id ="gf" class="btn waves-effect waves-light left">Get Fare</button>
+ 	</form>
+ </div>
+ {% endblock %}

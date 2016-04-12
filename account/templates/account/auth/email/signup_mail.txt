@@ -1,0 +1,10 @@
+Hi {{ u.username }}, 
+
+We have recieved a request by you to to create an account.
+
+copy this url and paste in your address or click on the link to activate your account.
+
+http://127.0.0.1:8000{% url 'activate-account' id=u.id otp=otp %} 
+
+Thanks,
+TravelEasy
